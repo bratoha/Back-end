@@ -31,12 +31,17 @@ public class Server extends AbstractActor {
         final ActorRef tcp = Tcp.get(getContext().getSystem()).manager();
         tcp.tell(TcpMessage.bind(getSelf(),
                 new InetSocketAddress("localhost", 8080), backlog), getSelf());
-        try {
+
+
+        // Тут работа с БД, чтобы не париться с MySQL, добавляй сам остановки
+        // Главное не юзай DatabaseHandler'ы
+
+        /*try {
             BusStopsDatabaseHandler.getBusStops(cityFactory);
             BusStopsDatabaseHandler.getDistance(cityFactory);
         } catch (SQLException e) {
             e.printStackTrace();
-        }
+        }*/
         cityFactory.countDistances();
 
         //Вот здесь добавляй пассажиров и водил

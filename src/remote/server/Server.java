@@ -11,6 +11,7 @@ import akka.io.Tcp.Connected;
 import akka.util.ByteString;
 import com.server.ServerInformation;
 import drtalgo.CityFactory;
+import drtalgo.Vehicle;
 
 public class Server extends AbstractActor {
 
@@ -34,6 +35,7 @@ public class Server extends AbstractActor {
 
 
         // Тут работа с БД, чтобы не париться с MySQL, добавляй сам остановки
+        cityFactory.makeCityExample1();
         // Главное не юзай DatabaseHandler'ы
 
         /*try {
@@ -45,8 +47,23 @@ public class Server extends AbstractActor {
         cityFactory.countDistances();
 
         //Вот здесь добавляй пассажиров и водил
-        cityFactory.addVehicle(20,"CentralSquare");
-        cityFactory.addVehicle(20, "Zoo");
+        //cityFactory.addVehicle(20,"CentralSquare");
+        //cityFactory.addVehicle(20, "Zoo");
+        cityFactory.getCity().chooseWorkingVehicles();
+        for(Vehicle vehicle: cityFactory.getCity().getVehicles())
+        {
+            System.out.println(vehicle.toString());
+        }
+
+        cityFactory.addPassenger("Stop3", "Stop4", "Passenger_TEST");
+        cityFactory.addVehicle(10, "Stop3");
+
+        System.out.println("*********************");
+        cityFactory.getCity().chooseWorkingVehicles();
+        for(Vehicle vehicle: cityFactory.getCity().getVehicles())
+        {
+            System.out.println(vehicle.toString());
+        }
     }
 
 

@@ -219,5 +219,4 @@ public class City {
         return new Pair<>(resulting_profit, result);
     }
 
-
 }

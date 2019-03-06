@@ -78,6 +78,7 @@ public class Vehicle {
      * Property of making trip
      */
     private void setTrip(){
+        trip.clearTrip();
         trip.createTrip(passengers, curstop);
     }
 

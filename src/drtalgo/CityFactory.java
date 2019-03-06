@@ -57,6 +57,7 @@ public class CityFactory {
 
         Vehicle vehicle1 = new Vehicle(city, 20, 1, stop1);
         Vehicle vehicle2 = new Vehicle(city, 20, 2, stop4);
+        index = 3;
 
 
         city.addVehicle(vehicle1);

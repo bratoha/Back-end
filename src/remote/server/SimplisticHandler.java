@@ -35,6 +35,13 @@ public class SimplisticHandler extends AbstractActor {
 
     }
 
+    static private void getInformation(){
+        System.out.println("\n####################");
+        System.out.println("Clients " + clientSystem.size());
+        System.out.println("Drivers " + driverSystem.size());
+        System.out.println("####################\n");
+    }
+
     static Props props() {
         return Props.create(SimplisticHandler.class);
     }
@@ -107,22 +114,21 @@ public class SimplisticHandler extends AbstractActor {
                                 System.out.println("Invalid client");
                         }
 
-                        System.out.println("Clients " + clientSystem.size());
-                        System.out.println("Drivers " + driverSystem.size());
+                        getInformation();
                         userName = UsersDatabaseHandler.getUserName(userInfo[0], userInfo[1]);
                         return;
                     }
 
                     if(!taken) {
                         String from = BusStopsDatabaseHandler.getBusStopName(userInfo[0]);
-                        String to = BusStopsDatabaseHandler.getBusStopName(userInfo[1]);
+                            String to = BusStopsDatabaseHandler.getBusStopName(userInfo[1]);
 
-                        cityFactory.addPassenger(from,to,userName);
+                            cityFactory.addPassenger(from,to,userName);
 
-                        try {
-                            city.chooseWorkingVehicles();
-                        } catch (NullPointerException ex) {
-                            System.out.println("Null");
+                            try {
+                                city.chooseWorkingVehicles();
+                            } catch (NullPointerException ex) {
+                                System.out.println("Null");
                             return;
                         }
 
@@ -139,8 +145,7 @@ public class SimplisticHandler extends AbstractActor {
                     System.out.println("Client closed");
                     clientSystem.remove(getSender());
                     driverSystem.remove(getSender());
-                    System.out.println("Clients " + clientSystem.size());
-                    System.out.println("Drivers " + driverSystem.size());
+                    getInformation();
                     getContext().stop(getSelf());
                 })
                 .match(ByteString.class, msg -> {

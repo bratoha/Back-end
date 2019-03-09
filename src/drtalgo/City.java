@@ -44,7 +44,16 @@ public class City {
     void addStop(BusStop stop){
         stops.add(stop);
     }
-    void addPassenger(Passenger passenger) {nottaken_passengers.add(passenger);}
+
+    void addPassenger(Passenger passenger) {
+        for(Passenger pass : used_passengers) {
+            if(pass.getName().equals(passenger.getName())) {
+                return;
+            }
+        }
+        nottaken_passengers.add(passenger);
+    }
+
     void addVehicle(Vehicle vehicle) {vehicles.add(vehicle);}
 
 

@@ -80,6 +80,10 @@ public class Vehicle {
             if(!trip.getTrip().get(0).isStartpoint()) {
                 result.add(trip.getTrip().get(0).getPassenger().getName());
                 passengers.remove(trip.getTrip().get(0).getPassenger());
+                trip.getTrip().get(0).getPair().setUsedFalse();
+            }
+            else{
+                trip.getTrip().get(0).setUsedTrue();
             }
             trip.getTrip().remove(0);
             if(trip.getTrip().size() == 0)

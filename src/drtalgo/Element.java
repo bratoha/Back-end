@@ -66,6 +66,8 @@ public class Element {
     //name+id of elem
     String name;
 
+    //used
+    boolean used = false;
 
     //check is this startpoint
     private boolean isStartpoint;
@@ -103,6 +105,8 @@ public class Element {
                 return true;
         }
         else {
+            if(pair.used)
+                return false;
             if (pair.order < ord)
                 return false;
             else
@@ -117,6 +121,13 @@ public class Element {
     void setOrder(int ord){
         order = ord;
     }
+
+
+    boolean isUsed(){return used;}
+    void setUsedTrue(){used = true;}
+    void setUsedFalse(){used = false; }
+    Element getPair(){return pair;}
+
 
     /**
      * property of destination from your elem

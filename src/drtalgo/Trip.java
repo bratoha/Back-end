@@ -35,8 +35,10 @@ public class Trip {
         ArrayList<Element> elements = new ArrayList<>();
         int visitedint = passengers.size()*2 + 1;
         for(Passenger passenger: passengers){
-            elements.add(passenger.startPoint);
-            passenger.startPoint.order = visitedint;
+            if(!passenger.startPoint.isUsed()) {
+                elements.add(passenger.startPoint);
+                passenger.startPoint.order = visitedint;
+            }
             elements.add(passenger.endPoint);
             passenger.endPoint.order = visitedint;
         }

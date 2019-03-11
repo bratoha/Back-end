@@ -2,23 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="834b1f66-0398-4780-8e1b-104df424f88e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/drtalgo/EgorMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ServerCode/drtalgo/BusStop.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ServerCode/drtalgo/BusStop.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ServerCode/drtalgo/City.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ServerCode/drtalgo/City.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ServerCode/drtalgo/Element.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ServerCode/drtalgo/Element.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ServerCode/drtalgo/Passenger.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ServerCode/drtalgo/Passenger.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ServerCode/drtalgo/Trip.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ServerCode/drtalgo/Trip.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ServerCode/drtalgo/Vehicle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ServerCode/drtalgo/Vehicle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ServerCode/remote/server/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ServerCode/remote/server/Server.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ServerCode/remote/server/ServerMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ServerCode/remote/server/ServerMain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ServerCode/remote/server/SimplisticHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ServerCode/remote/server/SimplisticHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/drtalgo/BusStop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/drtalgo/BusStop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/drtalgo/EgorMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/drtalgo/EgorMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/drtalgo/Element.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/drtalgo/Element.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/drtalgo/Passenger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/drtalgo/Passenger.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/drtalgo/Trip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/drtalgo/Trip.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/drtalgo/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/drtalgo/Vehicle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/remote/server/SimplisticHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/remote/server/SimplisticHandler.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -69,7 +58,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/remote/server/SimplisticHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="914">
+            <state relative-caret-position="940">
               <caret line="136" column="67" selection-start-line="136" selection-start-column="67" selection-end-line="136" selection-end-column="67" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -81,13 +70,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/drtalgo/Vehicle.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1">
-              <caret line="230" column="54" lean-forward="true" selection-start-line="230" selection-start-column="54" selection-end-line="230" selection-end-column="54" />
+            <state relative-caret-position="294">
+              <caret line="82" column="63" selection-start-line="82" selection-start-column="63" selection-end-line="82" selection-end-column="63" />
               <folding>
                 <element signature="e#646#647#0" expanded="true" />
                 <element signature="e#673#674#0" expanded="true" />
-                <element signature="e#3139#3140#0" expanded="true" />
-                <element signature="e#3177#3178#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -97,7 +84,7 @@
         <entry file="file://$PROJECT_DIR$/src/drtalgo/BusStop.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="322">
-              <caret line="19" column="8" lean-forward="true" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
+              <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -105,8 +92,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/drtalgo/Trip.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="204" column="27" selection-start-line="204" selection-start-column="27" selection-end-line="204" selection-end-column="27" />
+            <state relative-caret-position="201">
+              <caret line="40" column="13" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
               <folding>
                 <element signature="e#409#410#0" expanded="true" />
                 <element signature="e#436#437#0" expanded="true" />
@@ -118,14 +105,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/drtalgo/Element.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="54" selection-start-line="54" selection-end-line="54" />
+            <state relative-caret-position="373">
+              <caret line="128" column="34" selection-start-line="128" selection-start-column="34" selection-end-line="128" selection-end-column="34" />
               <folding>
-                <element signature="e#1457#1458#0" expanded="true" />
-                <element signature="e#1982#1983#0" expanded="true" />
-                <element signature="e#2017#2018#0" expanded="true" />
-                <element signature="e#2064#2065#0" expanded="true" />
-                <element signature="e#2096#2097#0" expanded="true" />
+                <element signature="e#1422#1423#0" expanded="true" />
+                <element signature="e#1449#1450#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -134,7 +118,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/server/ServerInformation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
+            <state relative-caret-position="462">
               <caret line="27" selection-start-line="27" selection-end-line="27" />
             </state>
           </provider>
@@ -143,8 +127,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/drtalgo/EgorMain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="14" column="112" selection-start-line="14" selection-start-column="112" selection-end-line="14" selection-end-column="112" />
+            <state relative-caret-position="138">
+              <caret line="14" column="47" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -152,8 +136,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/drtalgo/CityFactory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="458">
-              <caret line="64" lean-forward="true" selection-start-line="64" selection-end-line="64" />
+            <state relative-caret-position="1302">
+              <caret line="64" selection-start-line="64" selection-end-line="64" />
             </state>
           </provider>
         </entry>
@@ -161,7 +145,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/drtalgo/Passenger.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
+            <state relative-caret-position="189">
               <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
             </state>
           </provider>
@@ -170,7 +154,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/drtalgo/City.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1497">
+            <state relative-caret-position="1554">
               <caret line="81" column="4" selection-start-line="81" selection-start-column="4" selection-end-line="81" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -221,10 +205,10 @@
         <option value="$PROJECT_DIR$/src/drtalgo/BusStop.java" />
         <option value="$PROJECT_DIR$/src/remote/server/SimplisticHandler.java" />
         <option value="$PROJECT_DIR$/src/drtalgo/Passenger.java" />
-        <option value="$PROJECT_DIR$/src/drtalgo/Element.java" />
-        <option value="$PROJECT_DIR$/src/drtalgo/Trip.java" />
-        <option value="$PROJECT_DIR$/src/drtalgo/Vehicle.java" />
         <option value="$PROJECT_DIR$/src/drtalgo/EgorMain.java" />
+        <option value="$PROJECT_DIR$/src/drtalgo/Trip.java" />
+        <option value="$PROJECT_DIR$/src/drtalgo/Element.java" />
+        <option value="$PROJECT_DIR$/src/drtalgo/Vehicle.java" />
       </list>
     </option>
   </component>
@@ -234,9 +218,9 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="width" value="1680" />
-    <option name="height" value="1050" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="width" value="1920" />
+    <option name="height" value="1080" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -244,42 +228,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="ServerCode" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ServerCode" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ServerCode" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ServerCode" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ServerCode" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ServerCode" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ServerCode" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ServerCode" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="drtalgo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ServerCode" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ServerCode" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="ProjectPane" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -361,6 +312,7 @@
       <workItem from="1551728292490" duration="129000" />
       <workItem from="1551728424938" duration="348000" />
       <workItem from="1552300804463" duration="5589000" />
+      <workItem from="1552321124306" duration="1387000" />
     </task>
     <task id="LOCAL-00001" summary="Тут всё готово почти">
       <created>1552152228686</created>
@@ -373,7 +325,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32838000" />
+    <option name="totallyTimeSpent" value="34225000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -385,10 +337,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13247864" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13422818" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Capture Tool" order="3" />
@@ -397,7 +349,7 @@
       <window_info id="Image Layers" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4993895" weight="0.34489796" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4993895" visible="true" weight="0.34419262" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -468,18 +420,6 @@
     <MESSAGE value="Тут всё готово почти" />
     <option name="LAST_COMMIT_MESSAGE" value="Тут всё готово почти" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/drtalgo/EgorMain.java</url>
-          <line>16</line>
-          <properties />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
@@ -489,9 +429,7 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/drtalgo/main.java" />
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/b84b167b-5b21-4139-9052-cacf4b202271/console.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/b84b167b-5b21-4139-9052-cacf4b202271/console.sql" />
     <entry file="jar://$MAVEN_REPOSITORY$/com/typesafe/akka/akka-actor_2.12/2.5.21/akka-actor_2.12-2.5.21.jar!/akka/dispatch/Mailbox.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="186">
@@ -541,13 +479,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_192.jdk/Contents/Home/javafx-src.zip!/javafx/util/Pair.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="56" column="25" selection-start-line="56" selection-start-column="25" selection-end-line="56" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_192.jdk/Contents/Home/javafx-src.zip!/javafx/util/Pair.java" />
     <entry file="file://$PROJECT_DIR$/src/drtalgo/BetTree.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="436">
@@ -569,16 +501,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/b84b167b-5b21-4139-9052-cacf4b202271/console_1.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_192.jdk/Contents/Home/src.zip!/java/lang/String.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="110" column="19" selection-start-line="110" selection-start-column="19" selection-end-line="110" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/b84b167b-5b21-4139-9052-cacf4b202271/console_1.sql" />
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_192.jdk/Contents/Home/src.zip!/java/lang/String.java" />
     <entry file="das://b84b167b-5b21-4139-9052-cacf4b202271/schema/usersInfo/table/Users">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -628,40 +552,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/remote/server/SimplisticHandler.java">
+    <entry file="file://$PROJECT_DIR$/src/com/server/ServerInformation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="914">
-          <caret line="136" column="67" selection-start-line="136" selection-start-column="67" selection-end-line="136" selection-end-column="67" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/drtalgo/Passenger.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
+        <state relative-caret-position="462">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/drtalgo/CityFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
-          <caret line="64" lean-forward="true" selection-start-line="64" selection-end-line="64" />
+        <state relative-caret-position="1302">
+          <caret line="64" selection-start-line="64" selection-end-line="64" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/server/ServerInformation.java">
+    <entry file="file://$PROJECT_DIR$/src/drtalgo/Passenger.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
+        <state relative-caret-position="189">
+          <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/drtalgo/City.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1497">
+        <state relative-caret-position="1554">
           <caret line="81" column="4" selection-start-line="81" selection-start-column="4" selection-end-line="81" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -672,28 +586,14 @@
     <entry file="file://$PROJECT_DIR$/src/drtalgo/BusStop.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
-          <caret line="19" column="8" lean-forward="true" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/drtalgo/Element.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="54" selection-start-line="54" selection-end-line="54" />
-          <folding>
-            <element signature="e#1457#1458#0" expanded="true" />
-            <element signature="e#1982#1983#0" expanded="true" />
-            <element signature="e#2017#2018#0" expanded="true" />
-            <element signature="e#2064#2065#0" expanded="true" />
-            <element signature="e#2096#2097#0" expanded="true" />
-          </folding>
+          <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/drtalgo/Trip.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="204" column="27" selection-start-line="204" selection-start-column="27" selection-end-line="204" selection-end-column="27" />
+        <state relative-caret-position="201">
+          <caret line="40" column="13" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
           <folding>
             <element signature="e#409#410#0" expanded="true" />
             <element signature="e#436#437#0" expanded="true" />
@@ -701,23 +601,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/remote/server/SimplisticHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="940">
+          <caret line="136" column="67" selection-start-line="136" selection-start-column="67" selection-end-line="136" selection-end-column="67" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/drtalgo/Element.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="128" column="34" selection-start-line="128" selection-start-column="34" selection-end-line="128" selection-end-column="34" />
+          <folding>
+            <element signature="e#1422#1423#0" expanded="true" />
+            <element signature="e#1449#1450#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/drtalgo/Vehicle.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1">
-          <caret line="230" column="54" lean-forward="true" selection-start-line="230" selection-start-column="54" selection-end-line="230" selection-end-column="54" />
+        <state relative-caret-position="294">
+          <caret line="82" column="63" selection-start-line="82" selection-start-column="63" selection-end-line="82" selection-end-column="63" />
           <folding>
             <element signature="e#646#647#0" expanded="true" />
             <element signature="e#673#674#0" expanded="true" />
-            <element signature="e#3139#3140#0" expanded="true" />
-            <element signature="e#3177#3178#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/drtalgo/EgorMain.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="112" selection-start-line="14" selection-start-column="112" selection-end-line="14" selection-end-column="112" />
+        <state relative-caret-position="138">
+          <caret line="14" column="47" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
         </state>
       </provider>
     </entry>

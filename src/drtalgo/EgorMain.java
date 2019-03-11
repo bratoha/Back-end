@@ -14,10 +14,16 @@ public class EgorMain {
         System.out.println("********************");
         System.out.println(veh.getNextStopAndDistance().getKey() + " " + veh.getNextStopAndDistance().getValue());
         System.out.println("********************");
+
         veh.getOffPassengerAndMoveNext();
+        System.out.println(veh.getCurstop().name);
+        System.out.println("********************");
         System.out.println(veh.toString());
         System.out.println("********************");
+        ct.addPassenger("Stop1", "Stop2", "EGOR");
+        city.chooseWorkingVehicles();
         veh.getOffPassengerAndMoveNext();
+        city.chooseWorkingVehicles();
         System.out.println(veh.toString());
     }
 }

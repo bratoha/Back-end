@@ -7,6 +7,7 @@ import akka.io.Tcp;
 import akka.io.TcpMessage;
 import akka.util.ByteString;
 import com.server.ServerInformation;
+import drtalgo.BusStop;
 import drtalgo.City;
 import drtalgo.CityFactory;
 import drtalgo.Vehicle;
@@ -138,7 +139,25 @@ public class SimplisticHandler extends AbstractActor {
 
                         getSelf().tell(new ServerInformation(true, "All OK", false), getSender());
                         taken = true;
+                        return;
                     }
+
+                    for (Vehicle vehicle : city.getVehicles()) {
+                        System.out.println(vehicle.toString());
+                            vehicle.getTrip().getTrip().toString();
+
+                          //  vehicle.setCurstop(stop);
+                            System.out.println(vehicle.toString());
+
+                    }
+
+//                    for (Vehicle vehicle : city.getVehicles()) {
+//                        System.out.println(vehicle.toString());
+//                        vehicle.getTrip().getTrip().remove(0);
+//                        System.out.println(vehicle.toString());
+//                    }
+
+
                     getSelf().tell(new ServerInformation(true, "You have been taken", false), getSender());
                 })
                 .match(Tcp.ConnectionClosed.class, msg -> {

@@ -16,6 +16,11 @@ public class Trip {
     /** fileds **/
     // trip is a list of a Elements which shows us a trip
     ArrayList<Element> trip;
+
+    public ArrayList<Element> getTrip() {
+        return trip;
+    }
+
     // array of distances from first stop
     ArrayList<Integer> prefixDistances;
 
@@ -148,7 +153,7 @@ public class Trip {
         double wt = 0;
         double n = 0;
         for(int i=0; i<trip.size(); i++){
-            if(trip.get(i).pair != null && trip.get(i).isStartpoint){
+            if(trip.get(i).pair != null && trip.get(i).isStartpoint()){
                 wt += prefixDistances.get(i);
                 n++;
             }
@@ -163,9 +168,9 @@ public class Trip {
     double getReward(){
         double passenger_length = 0;
         for(int i=0; i<trip.size(); i++){
-            if(trip.get(i).pair != null && trip.get(i).isStartpoint){
+            if(trip.get(i).pair != null && trip.get(i).isStartpoint()){
                 passenger_length += (trip.get(i).getDistance(trip.get(i).pair))
-                        * trip.get(i).passenger.priority;
+                        * trip.get(i).getPassenger().priority;
             }
         }
         return passenger_length - getTotalDistance();
@@ -179,7 +184,7 @@ public class Trip {
     boolean checkCapacity(int capacity){
         int pass_in = 0;
         for(int i=0; i<trip.size(); i++){
-            if(trip.get(i).pair != null && trip.get(i).isStartpoint){
+            if(trip.get(i).pair != null && trip.get(i).isStartpoint()){
                 pass_in ++;
                 if(pass_in > capacity){
                     return false;
@@ -197,7 +202,7 @@ public class Trip {
     public String toString(){
         if (trip.isEmpty())
             return "empty trip";
-        String output=trip.get(0).name;
+        String output="|-> "+trip.get(0).name;
         for(int i=1;i<trip.size();i++) {
             output += " \n-{" + trip.get(i - 1).getDistance(trip.get(i)) + "}-> (" + trip.get(i).order + ")  " + trip.get(i).name + " " + trip.get(i).stop.toString();
             /*if(prefixDistances.size() != 0){

@@ -7,7 +7,7 @@ public class Passenger {
     // end point
     Element endPoint;
     // name of the passenger
-    String name;
+    private String name;
     // priority for drivers
     double priority = 1.1;
 

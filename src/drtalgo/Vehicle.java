@@ -21,6 +21,11 @@ public class Vehicle {
     private LinkedList<Passenger> possible_passengers;
     // current trip of the vehicle
     private Trip trip;
+
+    public Trip getTrip() {
+        return trip;
+    }
+
     // trip for algo
     private Trip trip_back;
 
@@ -63,6 +68,48 @@ public class Vehicle {
     }
 
     /**
+     * Get off passengers from current stop and changing stop to next
+     * @return array of names getting off passengers
+     */
+    ArrayList<String> getOffPassengerAndMoveNext(){
+        if(trip.getTrip().size() == 0)
+            return null;
+        BusStop previousStop = curstop;
+        ArrayList<String> result = new ArrayList<>();
+        while (trip.getTrip().get(0).getStop() == previousStop){
+            if(!trip.getTrip().get(0).isStartpoint()) {
+                result.add(trip.getTrip().get(0).getPassenger().getName());
+                passengers.remove(trip.getTrip().get(0).getPassenger());
+            }
+            trip.getTrip().remove(0);
+            if(trip.getTrip().size() == 0)
+                break;
+            else
+                curstop = trip.getTrip().get(0).stop;
+        }
+        return result;
+    }
+
+    /**
+     * Property of getting distance to next bus stop in a trip
+     * @return distance
+     */
+    Pair<String, Double>  getNextStopAndDistance(){
+        if(trip.getTrip().size() == 0)
+            return null;
+        int i=0;
+        BusStop nextStop = curstop;
+        while(trip.getTrip().get(i).getStop() == curstop){
+            i++;
+            if(i == trip.getTrip().size()) {
+                return null;
+            }
+            nextStop = trip.getTrip().get(i).getStop();
+        }
+        return new Pair<>(nextStop.getName(), curstop.getDistance(nextStop));
+    }
+
+    /**
      * Joining current and possible passengers
      * @param ex_passengers new possible passengers
      * @return
@@ -80,6 +127,14 @@ public class Vehicle {
     private void setTrip(){
         trip.clearTrip();
         trip.createTrip(passengers, curstop);
+    }
+
+    /**
+     * Property of setting current stop
+     * @param curstop
+     */
+    public void setCurstop(BusStop curstop) {
+        this.curstop = curstop;
     }
 
     /**
@@ -192,11 +247,14 @@ public class Vehicle {
     public String toString() {
         String output = "Vehicle"+ id + "\n";
         if(!passengers.isEmpty()) {
-            output += "Passengers:\n";
+            output += "\tPassengers:\n";
             for (Passenger pass : passengers) {
-                output += "\t" + pass.name + "\n";
+                output += "\t\t" + pass.getName() + "\n";
             }
-            output += "Trip:\n" + trip.toString();
+            output += "\tTrip:\n" + trip.toString();
+        }
+        else {
+            output += "\tNO PASSENGERS NO TRIP";
         }
         return output;
     }

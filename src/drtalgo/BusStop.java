@@ -2,6 +2,11 @@ package drtalgo;
 import java.util.HashMap;
 
 public class BusStop {
+
+    public String getName() {
+        return name;
+    }
+
     /** fields **/
     String name;
 

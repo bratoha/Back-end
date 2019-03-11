@@ -4,9 +4,9 @@ package drtalgo;
  * Class of Element
  * It can be start or end point of a passenger
  */
-class Element {
+public class Element {
     /////////////////////////////////////////////////////////////////////////////
-    /** constructors **/
+    /* constructors **/
 
     /**
      * Constructor with initialising all fields
@@ -50,6 +50,11 @@ class Element {
     }
 
     /////////////////////////////////////////////////////////////////////////////
+
+    BusStop getStop() {
+        return stop;
+    }
+
     /** fields **/
 
     // Current BusStop
@@ -63,17 +68,26 @@ class Element {
 
 
     //check is this startpoint
-    boolean isStartpoint;
+    private boolean isStartpoint;
 
     //pair of the element, if this is start point then pair is end point
     Element pair;
 
-    Passenger passenger;
+    private Passenger passenger;
 
     /////////////////////////////////////////////////////////////////////////////
     /** properties **/
 
-    void setPassenger(Passenger pass){passenger = pass;}
+    public void setPassenger(Passenger pass){passenger = pass;}
+
+    public boolean isStartpoint() {
+        return isStartpoint;
+    }
+
+    public Passenger getPassenger() {
+        return passenger;
+    }
+
     /**
      * check if we can put this element in that place of done trip
      * @param ord
@@ -96,7 +110,7 @@ class Element {
         }
     }
 
-    /***
+    /**
      * property of setting order
      * @param ord
      */

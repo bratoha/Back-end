@@ -1,0 +1,3 @@
+root
+135-toha-0135
+jdbc:mysql://localhost:3306/usersInfo?useSSL=false

@@ -11,31 +11,55 @@ import akka.io.Tcp.Connected;
 import akka.util.ByteString;
 import com.server.ServerInformation;
 import drtalgo.CityFactory;
-import drtalgo.Vehicle;
 
+/**
+ * The server actor that handles connections
+ *
+ * @author Kalinin Anton
+ */
 public class Server extends AbstractActor {
 
+    // The number of pending connections the queue will hold
     private final int backlog;
+
+    // The current address of server
+    private final InetSocketAddress address;
+
+    // City creation factory
     final static CityFactory cityFactory = new CityFactory();
-    public Server(int backlog) {
+
+
+    /**
+     * Server constructor
+     * @param address the current address of server
+     * @param backlog The number of pending connections the queue will hold
+     */
+    public Server(InetSocketAddress address, int backlog) {
         this.backlog = backlog;
-
+        this.address = address;
     }
 
-    static Props props(int backlog) {
-        return Props.create(Server.class, backlog);
+    /**
+     * Server class prop
+     * @param address the current address of server
+     * @param backlog the number of pending connections the queue will hold
+     * @return server's props
+     */
+    static Props props(InetSocketAddress address, int backlog) {
+        return Props.create(Server.class, address, backlog);
     }
 
-    // Привязка сервера к ip
+    /**
+     * Bind server to ip
+     * and add stop data to algorithm from database
+     */
     @Override
     public void preStart() {
         final ActorRef tcp = Tcp.get(getContext().getSystem()).manager();
         tcp.tell(TcpMessage.bind(getSelf(),
-                new InetSocketAddress("localhost", 8080), backlog), getSelf());
+                address, backlog), getSelf());
 
-
-        // Тут работа с БД, чтобы не париться с MySQL, добавляй сам остановки
-        // Главное не юзай DatabaseHandler'ы
+        // Setting preferences from the database
         try {
             BusStopsDatabaseHandler.getBusStops(cityFactory);
             BusStopsDatabaseHandler.getDistance(cityFactory);
@@ -44,13 +68,14 @@ public class Server extends AbstractActor {
         }
         cityFactory.countDistances();
 
-        //Вот здесь добавляй пассажиров и водил
         cityFactory.addVehicle(20,"CentralSquare");
         cityFactory.addVehicle(20, "Zoo");
     }
 
 
-    // Реакция сервера на работу сети и подключения
+    /**
+     *  Server reaction
+     */
     @Override
     public Receive createReceive() {
         return receiveBuilder()
@@ -87,7 +112,11 @@ public class Server extends AbstractActor {
 class ServerMain {
     public static void main(String[] args) throws InterruptedException {
         ActorSystem system = ActorSystem.create("MySystem");
-        ActorRef server = system.actorOf(Server.props(100), "Server");
+        ActorRef server = system.actorOf(Server.props(
+                new InetSocketAddress("localhost", 8080),
+                100),
+                "Server");
+
         Thread.sleep(1000);
         Scanner in = new Scanner(System.in);
         String message = in.nextLine();

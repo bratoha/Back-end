@@ -9,5 +9,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="com.typesafe.akka:akka-actor_2.12:2.5.21" level="project" />
     <orderEntry type="library" name="mysql-connector-java-5.1.47-bin" level="project" />
+    <orderEntry type="library" name="com.lightbend.akka:akka-stream-alpakka-amqp_2.12:1.0-M3" level="project" />
   </component>
 </module>

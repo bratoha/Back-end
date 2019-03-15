@@ -4,6 +4,7 @@ import drtalgo.CityFactory;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  * Handler of the city stops and information about which is in the databases
@@ -79,5 +80,23 @@ class BusStopsDatabaseHandler extends DatabaseHandler {
 
         if(resultSet.next()) return resultSet.getString(2);
         return null;
+    }
+
+    /**
+     * Getting all bus strops from database
+     * @return ArrayList of bus stops
+     * @throws SQLException
+     */
+    static ArrayList<String> getAllBusStops() throws SQLException {
+        preparedStatement = connection.prepareStatement("select * from BusStops");
+
+        ArrayList<String> busStops = new ArrayList<>();
+        ResultSet resultSet = preparedStatement.executeQuery();
+
+        while(resultSet.next()) {
+            busStops.add(resultSet.getString(2));
+        }
+
+        return busStops;
     }
 }

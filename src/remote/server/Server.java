@@ -96,13 +96,10 @@ public class Server extends AbstractActor {
                             true, // <-- keepOpenOnPeerClosed flag
                             true), getSelf());
 
-                    getSender().tell(TcpMessage.write(
-                            ByteString.fromArray(new ServerInformation(
-                                    false,
-                                    "You've been connected",
-                                    true)
-                                    .serializeSelf())),
-                                    getSelf());
+                    getSender().tell(TcpMessage.write(ByteString.fromString(
+                            String.format("%d %s %s", Configurations.CONNECTION,
+                                    "true", "You've&been&connected")
+                    )), getSelf());
                 })
                 .build();
     }
@@ -116,6 +113,8 @@ class ServerMain {
                 new InetSocketAddress("localhost", 8080),
                 100),
                 "Server");
+
+
 
         Thread.sleep(1000);
         Scanner in = new Scanner(System.in);

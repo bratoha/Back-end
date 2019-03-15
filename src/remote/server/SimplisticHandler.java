@@ -6,7 +6,6 @@ import akka.actor.Props;
 import akka.io.Tcp;
 import akka.io.TcpMessage;
 import akka.util.ByteString;
-import com.server.ServerInformation;
 import drtalgo.City;
 import drtalgo.CityFactory;
 import drtalgo.Vehicle;
@@ -97,76 +96,120 @@ public class SimplisticHandler extends AbstractActor {
     public Receive createReceive() {
         return receiveBuilder()
                 .match(Tcp.Received.class, msg -> {
-
+                    String[] userInfo;
                     String strInfo = msg.data().decodeString("UTF-8");
-                    String[] userInfo = strInfo.split(" ");
-                    if(!entered) {
-                        // 0 - name, 1 - password, 2 - fullname, 3 - phoneNumber, 4 - status, 5 - registration
-                        try {
-                            // Вход/регистрация клиента
-                            switch (userInfo[5]){
-                                case "y": {
-                                    if(!UsersDatabaseHandler.addUser
-                                            (userInfo[0], userInfo[1], userInfo[2], userInfo[3], userInfo[4])) {
-                                        getSelf().tell(new ServerInformation(
-                                                        false, "This user already exists", true),
-                                                getSender());
-                                    } else {
+                    userInfo = strInfo.split(" ", Integer.MAX_VALUE);
+                    int configuration = Integer.valueOf(userInfo[0]);
 
-                                        getSelf().tell(new ServerInformation(
-                                                        false, "You have been registered", false),
-                                                getSender());
-                                    }
-                                    return;
+                    String message = "";
+                    switch (configuration) {
+                        case Configurations.REGISTRATION: {
+                            try {
+                                if (!UsersDatabaseHandler.addUser(
+                                        userInfo[1],  /* Name */
+                                        userInfo[2],  /* Password */
+                                        userInfo[3],  /* Full name */
+                                        userInfo[4],  /* Phone number */
+                                        userInfo[5])) /* Status */ {
+
+                                    message = String.format("%d %s %s",
+                                            Configurations.REGISTRATION, "false", "This&user&is&already&exist");
+
+                                } else {
+                                    message = String.format("%d %s %s",
+                                            Configurations.REGISTRATION, "true", "You've&been&registered");
                                 }
-                                case "n": {
-                                    if(!UsersDatabaseHandler.login(userInfo[0],userInfo[3], userInfo[1])) {
-                                        getSelf().tell(new ServerInformation(
-                                                        false, "Incorrect name or password", true),
-                                                getSender());
+                            } catch (SQLException ex) {
+                                System.out.println("SQL Exception");
+                                message = String.format("%d %s",
+                                        Configurations.EXCEPTION, "SQL&exception&in&server");
+                            }
+                            break;
+                        }
+                        case Configurations.LOGIN: {
+                            try{
+                                if(!UsersDatabaseHandler.login(
+                                        userInfo[1],  /* Name */
+                                        userInfo[2],  /* Phone number */
+                                        userInfo[3])) /* Password */ {
+
+                                    message = String.format("%d %s %s",
+                                            Configurations.LOGIN, "false", "Incorrect&name&or&password");
+                                } else {
+
+                                    // Set user status
+                                    if (userInfo[4].equals("d")) {
+                                        driverSystem.put(userInfo[1], getSender());
+                                    } else if(!userInfo[4].equals("u")) {
+                                        System.out.println("Invalid client");
+                                        message = String.format("%d %s %s",
+                                                Configurations.LOGIN, "false", "Incorrect&user&status");
+
+                                        getSelf().tell(message, getSender());
                                         return;
                                     }
 
-                                    getSelf().tell(new ServerInformation(
-                                                    true, "You have been entered", false),
-                                            getSender());
+                                    message = String.format("%d %s %s",
+                                            Configurations.LOGIN, "true", "You've&been&entered");
+                                    userName = userInfo[1];
+                                    entered = true;
+                                    System.out.println(String.format("[%s]: Client've been entered", userInfo[1]));
+
                                 }
+                            } catch (SQLException ex) {
+                                System.out.println("SQL Exception");
+                                message = String.format("%d %s",
+                                        Configurations.EXCEPTION, "SQL&exception&in&server");
+
                             }
 
-                        } catch (ClassCastException ex) {
-                            System.out.println("Wrong message form client");
-                            getSelf().tell(new ServerInformation(
-                                            false, "Wrong message", true),
-                                    getSender());
-                            return;
-                        } catch (SQLException ex) {
-                            System.out.println("SQL Exception");
-                            getSelf().tell(new ServerInformation(
-                                            false, "SQL Exception", true),
-                                    getSender());
-                            return;
+                            break;
                         }
+                        case Configurations.ARRIVAL: {
 
-                        switch (userInfo[4]) {
-                            case "u": {
-                                clientSystem.put(userInfo[0], getSender());
-                                break;
-                            }
-                            case "d": {
-                                driverSystem.put(userInfo[0], getSender());
-                                break;
-                            }
-                            default:
-                                System.out.println("Invalid client");
+                            break;
                         }
+                        case Configurations.SELECTION: {
+                            if(clientSystem.containsKey(userName)) {
+                                String from = BusStopsDatabaseHandler.getBusStopName(userInfo[1]);
+                                String to = BusStopsDatabaseHandler.getBusStopName(userInfo[2]);
 
-                        getInformation();
-                        userName = UsersDatabaseHandler.getUserName(userInfo[0], userInfo[1]);
-                        entered = true;
-                        return;
+                                cityFactory.addPassenger(from,to,userName);
+                                city.chooseWorkingVehicles();
+
+                                for (Vehicle vehicle : city.getVehicles()) {
+                                    System.out.println(vehicle.toString());
+                                }
+
+                                message = String.format("%d %s",
+                                        Configurations.SELECTION, "Wait&for&the&bus");
+
+                                clientSystem.put(userName, getSender());
+                                taken = true;
+                            }
+                            else {
+                                message = String.format("%d %s",
+                                        Configurations.SELECTION, "You've&been&taken");
+                                taken = true;
+                            }
+                            break;
+                        }
+                        case Configurations.EXCEPTION: {
+
+                            break;
+                        }
+                        default: {
+                            System.out.println("Incorrect message from user: " + getSender());
+                        }
                     }
 
-                    if(!taken) {
+                    getSelf().tell(message, getSender());
+
+                    getInformation();
+
+
+
+                    /*if(!taken) {
                         String from = BusStopsDatabaseHandler.getBusStopName(userInfo[0]);
                         String to = BusStopsDatabaseHandler.getBusStopName(userInfo[1]);
 
@@ -194,12 +237,10 @@ public class SimplisticHandler extends AbstractActor {
                     }
 
 
-                    getSelf().tell(new ServerInformation(true, "You have been taken", false), getSender());
+                    getSelf().tell(new ServerInformation(true, "You have been taken", false), getSender());*/
                 })
                 .match(Tcp.ConnectionClosed.class, msg -> {
                     System.out.println("Client closed");
-                    clientSystem.remove(userName);
-                    driverSystem.remove(userName);
                     getInformation();
                     getContext().stop(getSelf());
                 })
@@ -209,8 +250,8 @@ public class SimplisticHandler extends AbstractActor {
                         actorRef.getValue().tell(TcpMessage.write(msg), getSelf());
                     }
                 })
-                .match(ServerInformation.class, info -> {
-                    getSender().tell(TcpMessage.write(ByteString.fromArray(info.serializeSelf())), getSelf());
+                .match(String.class, str -> {
+                    getSender().tell(TcpMessage.write(ByteString.fromString(str)), getSelf());
                 })
                 .build();
     }

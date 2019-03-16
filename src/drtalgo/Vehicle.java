@@ -49,7 +49,7 @@ public class Vehicle {
     }
 
     /** properties **/
-    BusStop getCurstop() {return curstop;}
+    public BusStop getCurstop() {return curstop;}
 
     /**
      * Property of adding new passengers to this vehicle
@@ -71,7 +71,7 @@ public class Vehicle {
      * Get off passengers from current stop and changing stop to next
      * @return array of names getting off passengers
      */
-    ArrayList<String> getOffPassengerAndMoveNext(){
+    public ArrayList<String> getOffPassengerAndMoveNext(){
         if(trip.getTrip().size() == 0)
             return null;
         BusStop previousStop = curstop;
@@ -98,7 +98,7 @@ public class Vehicle {
      * Property of getting distance to next bus stop in a trip
      * @return distance
      */
-    Pair<String, Double>  getNextStopAndDistance(){
+    public Pair<String, Double>  getNextStopAndDistance(){
         if(trip.getTrip().size() == 0)
             return null;
         int i=0;

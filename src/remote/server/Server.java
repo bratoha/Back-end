@@ -29,6 +29,7 @@ public class Server extends AbstractActor {
     final static CityFactory cityFactory = new CityFactory();
 
 
+
     /**
      * Server constructor
      * @param address the current address of server
@@ -68,8 +69,6 @@ public class Server extends AbstractActor {
         }
         cityFactory.countDistances();
 
-        cityFactory.addVehicle(20,"CentralSquare");
-        cityFactory.addVehicle(20, "Zoo");
     }
 
 

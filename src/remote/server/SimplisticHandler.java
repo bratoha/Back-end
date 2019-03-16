@@ -9,6 +9,8 @@ import akka.util.ByteString;
 import drtalgo.City;
 import drtalgo.CityFactory;
 import drtalgo.Vehicle;
+import javafx.util.Pair;
+import scala.Int;
 
 import java.sql.*;
 import java.util.*;
@@ -28,6 +30,8 @@ public class SimplisticHandler extends AbstractActor {
 
     // Drivers
     private static HashMap<String, ActorRef> driverSystem = new HashMap<>();
+
+    private static HashMap<String, Integer> driversId = new HashMap<>();
 
     //---------------------------------------------------------------------------------------------------------//
 
@@ -54,8 +58,9 @@ public class SimplisticHandler extends AbstractActor {
     // Was the user entered to the system
     private boolean entered = false;
 
-    //---------------------------------------------------------------------------------------------------------//
+    private static int idKey = 0;
 
+    //---------------------------------------------------------------------------------------------------------//
 
     /*
       Static constructor
@@ -79,6 +84,15 @@ public class SimplisticHandler extends AbstractActor {
         System.out.println("####################\n");
     }
 
+    static private String getName(int id){
+        for(HashMap.Entry<String, Integer> el : driversId.entrySet()) {
+            if(el.getValue().equals(id))
+                return el.getKey();
+        }
+
+        return null;
+    }
+
     /**
      * Simplistic Handler class prop
      * @return handler's props
@@ -86,6 +100,8 @@ public class SimplisticHandler extends AbstractActor {
     static Props props() {
         return Props.create(SimplisticHandler.class);
     }
+
+
 
     /**
      * Handler's response to accepting and receiving messages from a specific user
@@ -100,7 +116,6 @@ public class SimplisticHandler extends AbstractActor {
                     String strInfo = msg.data().decodeString("UTF-8");
                     userInfo = strInfo.split(" ", Integer.MAX_VALUE);
                     int configuration = Integer.valueOf(userInfo[0]);
-
                     String message = "";
                     switch (configuration) {
                         case Configurations.REGISTRATION: {
@@ -140,6 +155,8 @@ public class SimplisticHandler extends AbstractActor {
                                     // Set user status
                                     if (userInfo[4].equals("d")) {
                                         driverSystem.put(userInfo[1], getSender());
+                                        driversId.put(userInfo[1], idKey);
+                                        idKey++;
                                     } else if(!userInfo[4].equals("u")) {
                                         System.out.println("Invalid client");
                                         message = String.format("%d %s %s",
@@ -165,14 +182,24 @@ public class SimplisticHandler extends AbstractActor {
 
                             break;
                         }
+                        case Configurations.SET_DRIVER_STOP: {
+                            String busStopName = BusStopsDatabaseHandler.getBusStopName(userInfo[2]);
+                            cityFactory.addVehicle(Integer.valueOf(userInfo[1]),
+                                    busStopName);
+                            message = String.format("%d %s", Configurations.SET_DRIVER_STOP, "You&are&here:&" + busStopName);
+                            break;
+                        }
                         case Configurations.ARRIVAL: {
 
                             break;
                         }
+
                         case Configurations.SELECTION: {
-                            if(clientSystem.containsKey(userName)) {
+                            if(!clientSystem.containsKey(userName)) {
                                 String from = BusStopsDatabaseHandler.getBusStopName(userInfo[1]);
                                 String to = BusStopsDatabaseHandler.getBusStopName(userInfo[2]);
+
+                                clientSystem.put(userName, getSender());
 
                                 cityFactory.addPassenger(from,to,userName);
                                 city.chooseWorkingVehicles();
@@ -184,18 +211,79 @@ public class SimplisticHandler extends AbstractActor {
                                 message = String.format("%d %s",
                                         Configurations.SELECTION, "Wait&for&the&bus");
 
-                                clientSystem.put(userName, getSender());
+
                                 taken = true;
+
+                                for(Vehicle vehicle : city.getVehicles()){
+                                    if (from != null && from.equals(vehicle.getCurstop().getName()))
+                                        message = String.format("%d %s",
+                                                Configurations.SELECTION, "Bus&is&here");
+                                }
+
+                                int i = 0;
+                                for(Map.Entry<String, ActorRef> el : driverSystem.entrySet()) {
+                                    Pair<String, Double> nextStop = city.getVehicles().get(i).
+                                            getNextStopAndDistance();
+
+                                    if(nextStop == null)
+                                        getSelf().tell(String.format("%d %s",
+                                            Configurations.SET_DRIVER_STOP, "You've&not&have&next&station"), el.getValue());
+                                    else
+                                        getSelf().tell(String.format("%d %s",
+                                                Configurations.SET_DRIVER_STOP, "Next&station&" + nextStop.getKey()), el.getValue());
+                                    ++i;
+                                }
+
                             }
                             else {
                                 message = String.format("%d %s",
-                                        Configurations.SELECTION, "You've&been&taken");
+                                        Configurations.SELECTION, "You've&been&select&bus&stop");
                                 taken = true;
                             }
                             break;
                         }
                         case Configurations.EXCEPTION: {
 
+                            break;
+                        }
+                        case Configurations.DRIVER_ARRIVE: {
+
+                            ArrayList<String> passengers =
+                                    cityFactory.getCity().getVehicles().
+                                            get(driversId.get(userName)).getOffPassengerAndMoveNext();
+
+                            city.chooseWorkingVehicles();
+
+                            for (Vehicle vehicle : city.getVehicles()) {
+                                System.out.println(vehicle.toString());
+                            }
+
+                            Pair<String, Double> nextStop = city.getVehicles().get(driversId.get(userName)).
+                                    getNextStopAndDistance();
+                            String busStopMessage;
+                            if(nextStop == null) busStopMessage = "It&was&the&last&station";
+                            else busStopMessage = "Next&bus&stop&is&"+nextStop.getKey();
+
+
+
+
+                            if(passengers == null || passengers.size() == 0) {
+                                message = String.format("%d %s", Configurations.DRIVER_ARRIVE,
+                                        "No&one&to&get&off.&" + busStopMessage);
+                                break;
+                            }
+
+
+                            for(String passenger : passengers) {
+                                clientSystem.get(passenger).tell(
+                                        TcpMessage.write(ByteString.fromString(
+                                                String.format("%d %s", Configurations.ARRIVAL, "You've&been&arrived"))),
+                                        getSelf());
+                                clientSystem.remove(passenger);
+                            }
+
+                            message = String.format("%d %s", Configurations.DRIVER_ARRIVE,
+                                    "You&get&off&passengers.&" + busStopMessage);
                             break;
                         }
                         default: {
@@ -206,41 +294,10 @@ public class SimplisticHandler extends AbstractActor {
                     getSelf().tell(message, getSender());
 
                     getInformation();
-
-
-
-                    /*if(!taken) {
-                        String from = BusStopsDatabaseHandler.getBusStopName(userInfo[0]);
-                        String to = BusStopsDatabaseHandler.getBusStopName(userInfo[1]);
-
-                        cityFactory.addPassenger(from,to,userName);
-
-                        try {
-                            city.chooseWorkingVehicles();
-                        } catch (NullPointerException ex) {
-                            System.out.println("Null");
-                            return;
-                        }
-
-                        for (Vehicle vehicle : city.getVehicles()) {
-                            System.out.println(vehicle.toString());
-                        }
-
-                        getSelf().tell(new ServerInformation(true, "All OK", false), getSender());
-                        taken = true;
-                        return;
-                    }
-
-
-                    for (Vehicle vehicle : city.getVehicles()) {
-                        System.out.println(vehicle.toString());
-                    }
-
-
-                    getSelf().tell(new ServerInformation(true, "You have been taken", false), getSender());*/
                 })
                 .match(Tcp.ConnectionClosed.class, msg -> {
                     System.out.println("Client closed");
+                    driverSystem.remove(userName);
                     getInformation();
                     getContext().stop(getSelf());
                 })

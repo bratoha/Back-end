@@ -19,4 +19,7 @@ class Configurations {
 
     static final int CONNECTION = 5;
 
+    public static final int SET_DRIVER_STOP = 6;
+
+    public static final int DRIVER_ARRIVE = 7;
 }

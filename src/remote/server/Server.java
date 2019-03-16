@@ -109,7 +109,7 @@ class ServerMain {
     public static void main(String[] args) throws InterruptedException {
         ActorSystem system = ActorSystem.create("MySystem");
         ActorRef server = system.actorOf(Server.props(
-                new InetSocketAddress("localhost", 8080),
+                new InetSocketAddress("192.168.43.154", 8080),
                 100),
                 "Server");
 

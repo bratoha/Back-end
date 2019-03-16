@@ -28,9 +28,13 @@ public class SimplisticHandler extends AbstractActor {
     // Passengers
     private static HashMap<String, ActorRef> clientSystem = new HashMap<>();
 
+    // Passenger -> stop from
+    private static HashMap<String, String> passengersStops = new HashMap<>();
+
     // Drivers
     private static HashMap<String, ActorRef> driverSystem = new HashMap<>();
 
+    // Drivers ID
     private static HashMap<String, Integer> driversId = new HashMap<>();
 
     //---------------------------------------------------------------------------------------------------------//
@@ -200,6 +204,7 @@ public class SimplisticHandler extends AbstractActor {
                                 String to = BusStopsDatabaseHandler.getBusStopName(userInfo[2]);
 
                                 clientSystem.put(userName, getSender());
+                                passengersStops.put(userName,from);
 
                                 cityFactory.addPassenger(from,to,userName);
                                 city.chooseWorkingVehicles();
@@ -209,25 +214,27 @@ public class SimplisticHandler extends AbstractActor {
                                 }
 
                                 message = String.format("%d %s",
-                                        Configurations.SELECTION, "Wait&for&the&bus");
+                                        Configurations.SELECTION, "Wait&for&the&bus" );
 
 
                                 taken = true;
 
+                                int i = 0;
                                 for(Vehicle vehicle : city.getVehicles()){
                                     if (from != null && from.equals(vehicle.getCurstop().getName()))
                                         message = String.format("%d %s",
-                                                Configurations.SELECTION, "Bus&is&here");
+                                                Configurations.SELECTION, "Bus&is&here.&Id:&" + i);
+                                    ++i;
                                 }
 
-                                int i = 0;
+                                i = 0;
                                 for(Map.Entry<String, ActorRef> el : driverSystem.entrySet()) {
                                     Pair<String, Double> nextStop = city.getVehicles().get(i).
                                             getNextStopAndDistance();
 
                                     if(nextStop == null)
                                         getSelf().tell(String.format("%d %s",
-                                            Configurations.SET_DRIVER_STOP, "You've&not&have&next&station"), el.getValue());
+                                            Configurations.SET_DRIVER_STOP, "You've&not&next&station"), el.getValue());
                                     else
                                         getSelf().tell(String.format("%d %s",
                                                 Configurations.SET_DRIVER_STOP, "Next&station&" + nextStop.getKey()), el.getValue());
@@ -258,9 +265,19 @@ public class SimplisticHandler extends AbstractActor {
                                 System.out.println(vehicle.toString());
                             }
 
+                            String currentStop = city.getVehicles().get(driversId.get(userName)).getCurstop().getName();
+
+                            for(Map.Entry<String, String> passenger : passengersStops.entrySet()){
+                                if(passenger.getValue().equals(currentStop))
+                                    getSelf().tell(String.format("%d %s",
+                                            Configurations.SELECTION, "Driver&is&here.&Id:&" + driversId.get(userName)),
+                                            clientSystem.get(passenger.getKey()));
+                            }
+
                             Pair<String, Double> nextStop = city.getVehicles().get(driversId.get(userName)).
                                     getNextStopAndDistance();
                             String busStopMessage;
+
                             if(nextStop == null) busStopMessage = "It&was&the&last&station";
                             else busStopMessage = "Next&bus&stop&is&"+nextStop.getKey();
 
@@ -274,12 +291,16 @@ public class SimplisticHandler extends AbstractActor {
                             }
 
 
+
+
                             for(String passenger : passengers) {
                                 clientSystem.get(passenger).tell(
                                         TcpMessage.write(ByteString.fromString(
                                                 String.format("%d %s", Configurations.ARRIVAL, "You've&been&arrived"))),
                                         getSelf());
                                 clientSystem.remove(passenger);
+                                passengersStops.remove(passenger);
+                                taken = false;
                             }
 
                             message = String.format("%d %s", Configurations.DRIVER_ARRIVE,

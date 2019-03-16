@@ -3,13 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="834b1f66-0398-4780-8e1b-104df424f88e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ServerCode/drtalgo/Vehicle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ServerCode/drtalgo/Vehicle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ServerCode/remote/server/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ServerCode/remote/server/Server.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ServerCode/remote/server/ServerMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ServerCode/remote/server/ServerMain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ServerCode/remote/server/SimplisticHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ServerCode/remote/server/SimplisticHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/drtalgo/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/drtalgo/Vehicle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/remote/server/AlgorithmHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/remote/server/Configurations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/remote/server/Configurations.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/remote/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/remote/server/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/remote/server/SimplisticHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/remote/server/SimplisticHandler.java" afterDir="false" />
     </list>
@@ -52,7 +45,7 @@
         <item name="usersInfo@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="usersInfo: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="BusStops: table" type="285a2a93:MysqlImplModel$Table" />
+        <item name="Users: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -62,8 +55,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/remote/server/SimplisticHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="444">
-              <caret line="271" column="38" lean-forward="true" selection-start-line="271" selection-start-column="38" selection-end-line="271" selection-end-column="38" />
+            <state relative-caret-position="-1754">
+              <caret line="209" column="61" lean-forward="true" selection-start-line="209" selection-start-column="61" selection-end-line="209" selection-end-column="61" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/remote/server/Server.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1506">
+              <caret line="111" column="39" lean-forward="true" selection-start-line="111" selection-start-column="39" selection-end-line="111" selection-end-column="53" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -74,7 +79,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/drtalgo/Vehicle.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="565">
+            <state relative-caret-position="893">
               <caret line="51" column="11" selection-start-line="51" selection-start-column="11" selection-end-line="51" selection-end-column="11" />
               <folding>
                 <element signature="e#646#647#0" expanded="true" />
@@ -132,8 +137,8 @@
         <option value="$PROJECT_DIR$/src/remote/server/BusStopsDatabaseHandler.java" />
         <option value="$PROJECT_DIR$/src/remote/server/AlgorithmHandler.java" />
         <option value="$PROJECT_DIR$/src/remote/server/Configurations.java" />
-        <option value="$PROJECT_DIR$/src/remote/server/Server.java" />
         <option value="$PROJECT_DIR$/src/drtalgo/Vehicle.java" />
+        <option value="$PROJECT_DIR$/src/remote/server/Server.java" />
         <option value="$PROJECT_DIR$/src/remote/server/SimplisticHandler.java" />
       </list>
     </option>
@@ -154,6 +159,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -195,13 +201,19 @@
               <item name="ServerCode" type="b2602c69:ProjectViewProjectNode" />
               <item name="ServerCode" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="drtalgo" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ServerCode" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ServerCode" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="Server.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -212,7 +224,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552696803491" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552736562297" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -289,7 +301,9 @@
       <workItem from="1552555432216" duration="65000" />
       <workItem from="1552561704051" duration="260000" />
       <workItem from="1552656924033" duration="27919000" />
-      <workItem from="1552689191797" duration="7465000" />
+      <workItem from="1552689191797" duration="7709000" />
+      <workItem from="1552697976924" duration="11000" />
+      <workItem from="1552731721718" duration="4768000" />
     </task>
     <task id="LOCAL-00001" summary="Тут всё готово почти">
       <created>1552152228686</created>
@@ -312,11 +326,18 @@
       <option name="project" value="LOCAL" />
       <updated>1552680816757</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Beta version">
+      <created>1552696948416</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1552696948416</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74123000" />
+    <option name="totallyTimeSpent" value="79146000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -329,8 +350,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14224665" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.14529915" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Capture Tool" order="3" />
@@ -363,7 +385,7 @@
       <window_info anchor="right" x="0" y="0" width="370" height="850" id="Documentation" order="9" side_tool="true" weight="0.32967034" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.14102565" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14529915" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Capture Tool" order="3" />
@@ -384,16 +406,16 @@
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32959184" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="13" weight="0.32959184" />
-      <window_info anchor="right" x="0" y="0" width="370" height="850" id="Documentation" order="0" side_tool="true" weight="0.32967034" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="2" weight="0.24969475" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
-      <window_info anchor="right" id="Maven" order="4" weight="0.32967034" />
-      <window_info anchor="right" id="Palette" order="5" />
-      <window_info anchor="right" id="Capture Analysis" order="6" />
-      <window_info anchor="right" id="Database" order="7" weight="0.4993895" />
-      <window_info anchor="right" id="Palette&#9;" order="8" />
-      <window_info anchor="right" id="Theme Preview" order="9" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.24969475" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="3" weight="0.32967034" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Database" order="6" weight="0.4993895" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info anchor="right" x="0" y="0" width="370" height="850" id="Documentation" order="9" side_tool="true" weight="0.32967034" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -444,35 +466,14 @@
     <MESSAGE value="Тут всё готово почти" />
     <MESSAGE value="Added comments" />
     <MESSAGE value="Изменил полностью архитектуру сервера, добавил новые события" />
-    <option name="LAST_COMMIT_MESSAGE" value="Изменил полностью архитектуру сервера, добавил новые события" />
+    <MESSAGE value="Beta version" />
+    <option name="LAST_COMMIT_MESSAGE" value="Beta version" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/drtalgo/main.java" />
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/b84b167b-5b21-4139-9052-cacf4b202271/console.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_192.jdk/Contents/Home/javafx-src.zip!/javafx/util/Pair.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="56" column="25" selection-start-line="56" selection-start-column="25" selection-end-line="56" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/b84b167b-5b21-4139-9052-cacf4b202271/console_1.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="das://b84b167b-5b21-4139-9052-cacf4b202271/schema/usersInfo/table/Users" />
-    <entry file="file://$PROJECT_DIR$/src/drtalgo/Passenger.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/server/ServerInformation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
@@ -556,13 +557,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://b84b167b-5b21-4139-9052-cacf4b202271/schema/usersInfo/table/Paths">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="das://b84b167b-5b21-4139-9052-cacf4b202271/schema/usersInfo/table/Paths" />
     <entry file="file://$PROJECT_DIR$/src/drtalgo/City.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="974">
@@ -598,16 +593,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/remote/server/Server.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="554">
-          <caret line="64" selection-start-line="64" selection-end-line="64" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/remote/server/BusStopsDatabaseHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="406">
@@ -628,13 +613,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://b84b167b-5b21-4139-9052-cacf4b202271/schema/usersInfo/table/BusStops">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="das://b84b167b-5b21-4139-9052-cacf4b202271/schema/usersInfo/table/BusStops" />
     <entry file="file://$PROJECT_DIR$/src/drtalgo/BusStop.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
@@ -722,9 +701,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_192.jdk/Contents/Home/src.zip!/java/util/HashMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="955" column="25" selection-start-line="955" selection-start-column="25" selection-end-line="955" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/drtalgo/Vehicle.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="565">
+        <state relative-caret-position="893">
           <caret line="51" column="11" selection-start-line="51" selection-start-column="11" selection-end-line="51" selection-end-column="11" />
           <folding>
             <element signature="e#646#647#0" expanded="true" />
@@ -733,17 +719,118 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_192.jdk/Contents/Home/src.zip!/java/util/HashMap.java">
+    <entry file="das://b84b167b-5b21-4139-9052-cacf4b202271/schema/usersInfo/table/Paths">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://b84b167b-5b21-4139-9052-cacf4b202271/schema/usersInfo/table/Paths">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://b84b167b-5b21-4139-9052-cacf4b202271/schema/usersInfo/table/Paths">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://b84b167b-5b21-4139-9052-cacf4b202271/schema/usersInfo/table/BusStops">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://b84b167b-5b21-4139-9052-cacf4b202271/schema/usersInfo/table/BusStops">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://b84b167b-5b21-4139-9052-cacf4b202271/schema/usersInfo/table/BusStops">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://b84b167b-5b21-4139-9052-cacf4b202271/schema/usersInfo/table/BusStops">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://b84b167b-5b21-4139-9052-cacf4b202271/schema/usersInfo/table/Paths">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://b84b167b-5b21-4139-9052-cacf4b202271/schema/usersInfo/table/Paths">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://b84b167b-5b21-4139-9052-cacf4b202271/schema/usersInfo/table/Paths">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://b84b167b-5b21-4139-9052-cacf4b202271/schema/usersInfo/table/BusStops">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://b84b167b-5b21-4139-9052-cacf4b202271/schema/usersInfo/table/BusStops">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://b84b167b-5b21-4139-9052-cacf4b202271/schema/usersInfo/table/BusStops">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://b84b167b-5b21-4139-9052-cacf4b202271/schema/usersInfo/table/BusStops">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/remote/server/Server.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="955" column="25" selection-start-line="955" selection-start-column="25" selection-end-line="955" selection-end-column="25" />
+        <state relative-caret-position="1506">
+          <caret line="111" column="39" lean-forward="true" selection-start-line="111" selection-start-column="39" selection-end-line="111" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/remote/server/SimplisticHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="444">
-          <caret line="271" column="38" lean-forward="true" selection-start-line="271" selection-start-column="38" selection-end-line="271" selection-end-column="38" />
+        <state relative-caret-position="-1754">
+          <caret line="209" column="61" lean-forward="true" selection-start-line="209" selection-start-column="61" selection-end-line="209" selection-end-column="61" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
